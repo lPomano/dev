@@ -1,7 +1,3 @@
-exercise number 1
-
-
-
 public class CommandLineParams {
 
     public static void main(String[] args) {
