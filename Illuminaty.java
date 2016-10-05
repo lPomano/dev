@@ -1,51 +1,48 @@
 import java.util.Scanner;
 
 /**
- * Class creates a triangle and checks is it possible to do.
+ * Class creates a triangle and checks is it possible to do,
  * has a field array which contains 3 triangles sides
  */
 public class Illuminaty {
-    private int b;
-    static double array[] = new double[3];
-
+    double array[] = new double[3];
+    enum Triangle {RAVNOBEDREN, RAVNOSTORONEN, IMPOSSIBLE}
+    Triangle trio;
     /**
-    * Method "check" checks the possible of a triangle and reports how many equal sides triangle has
+    * Method "check" checks the possible of a triangle
     */
     public void check() {
         for (int i = 0; i < 3; i++) {
             for (int q = 0; q < 3; q++) {
                 for (int e = 0; e < 3; e++) {
                     if (array[i] + array[q] <= array[e]) {
-                        b = 1;
-                        break;
+                        trio = Triangle.IMPOSSIBLE;
                     }
                 }
                 if (array[i] == array[q] && i != q) {
-                    b = 3;
+                    trio = Triangle.RAVNOBEDREN;
                 }
             }
         }
         if (array[0] == array[1] && array[0] == array[2]) {
-            b = 2;
+            trio = Triangle.RAVNOSTORONEN;
         }
     }
 
     /**
-     * Method "output" displays the final results depends on b
+     * Method "outPut" reports can we build a triangle and how many equal sides we have
      */
-    public void output() {
-        switch (b) {
-            case 1:
-                System.out.println("this triangle cannot be real");
-                break;
-            case 2:
-                System.out.println("this triangle has 3 equal sides");
-                break;
-            case 3:
-                System.out.println("this triangle has 2 equal sides");
+    public void outPut() {
+        if (trio == Triangle.IMPOSSIBLE) {
+            System.out.println("we cant build a triangle");
+        }
+        if (trio == Triangle.RAVNOBEDREN) {
+            System.out.println("we have 2 equal sides");
+        }
+        if (trio == Triangle.RAVNOSTORONEN) {
+            System.out.println("we have 3 equal sides");
         }
     }
-
     /**
      * Method "numbersCheck" checks what are you enter: letters or numbers. if you enter letters, method returns false value,
      * if you enter numbers, method returns true value
@@ -69,7 +66,8 @@ public class Illuminaty {
         Illuminaty illuminaty = new Illuminaty();
         if (illuminaty.numbersCheck()) {
             illuminaty.check();
-            illuminaty.output();
+            illuminaty.outPut();
+
         }
     }
 }
