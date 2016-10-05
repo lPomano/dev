@@ -12,7 +12,7 @@ public class Uravnenie {
     /**
      * Method "filling" allows you to enter the coefficients and displays the value of D
      */
-    static boolean filling() {
+    boolean filling() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the coefficients of the equation:");
         if (input.hasNextDouble()) {
@@ -31,16 +31,12 @@ public class Uravnenie {
     }
 
     /**
-     * Method "rootsChek" checks how many roots we have
+     * Method "check" checks how many roots we have and reports they
      */
-    static double rootsChek() {
-        /**
-         * check if D == 0
-         */
+     void check() {
         if (1.0 / D == Double.POSITIVE_INFINITY) {
             double x3 = -b / 2 * a;
             System.out.println("You have only 1 root, is: " + x3);
-            return D;
         }
         if (D < 0) {
             System.out.println("no roots");
@@ -51,13 +47,12 @@ public class Uravnenie {
             double x2 = (-b - Math.sqrt(D)) / 2 * a;
             System.out.println("Your second root is: " + x2);
         }
-        return D;
     }
 
     public static void main(String[] args) {
         Uravnenie uravnenie = new Uravnenie();
-        if (Uravnenie.filling()) {
-            Uravnenie.rootsChek();
+        if (uravnenie.filling()) {
+            uravnenie.check();
         }
     }
 }
