@@ -2,7 +2,6 @@ package Transport;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-
 import static FileWork.FileReader.distance;
 
 /**
