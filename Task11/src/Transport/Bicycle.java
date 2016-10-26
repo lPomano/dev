@@ -19,6 +19,6 @@ public class Bicycle {
         DecimalFormat f = new DecimalFormat("#,##0.00", s);
         double bicycleTime = distance / averageSpeed;
         System.out.println("Travel through our checkpoint by bicycle takes: " + f.format(bicycleTime*60) + " minutes");
-        System.out.println("And it will be free");
+        System.out.println("And it will be free" + "\n");
     }
 }
