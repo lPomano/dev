@@ -61,3 +61,4 @@ The web root is located in the project directory at `src/` and you can install y
 And like any other vagrant file you have SSH access with
 
 	$ vagrant ssh
+	
